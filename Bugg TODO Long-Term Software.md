@@ -1,0 +1,19 @@
+- [ ] Documentation
+- [ ] Check "TODO" comments in the codebase
+- [ ] Docstrings, auto-docs
+- [ ] Make everything run without root priviledges
+- [ ] Document how to bump the Raspberry Pi OS base image version when building a new firmware release. Currently it's buried in release.yml ```ref: 2024-03-12-raspios-bookworm-arm64```
+- [x] Tidy up the installation of the application firmware. Currently we have a clone of the buggd repo under /opt, as well as a venv, and buggd is installed into the venv in editable mode. This is good for development, as we can just git pull in the buggd folder, and, with the venv sourced, running buggd runs the latest version. It would probably be cleaner to just install it system-wide, and override the fact that it's an Externally Managed python installation. There's an option to do that in pip.
+- [ ] Security - currently all the units have the same default password
+- [ ] Switch application code over to use the new drivers.leds module.
+- [ ] Implement mechanism (at the pip install step) to install buggd at a specific version, so it's absolutely explicit which version is in a build 
+- [ ] Document binary dependencies (ffmpeg, arecord, ntpdate). Pretty sure they're the only three
+- [ ] Remove binary dependencies. I'm sure we can get rid of all three, with a bit of testing.
+- [ ] Standardise emoji use during buggOS build
+- [x] Rename bugg-os repo to buggOS
+- [x] Get the build running on a GA Larger Runner. I got started with this, but it was bitching about being disabled due to spend limits, even though they were set decently
+- [ ] Check availability of an ARM Github Large runner. They're not quite available yet on the website, but they are in beta. I tried the biggest Large Runner and it was dog slow, no faster than the free tier. 
+- [ ] In future, build from RAM, only store the artefacts in NV storage.
+- [ ] Fix installation of sound driver kernel module, so we're not using this hack first-boot-script approach. It's just a matter of figuring out how to install kernel modules properly in the pi-gen chroot - running depmod properly, etc. Maybe post an issue on pi-gen github "how to package a kernel module" etc
+- [ ] Implement an OTA, ideally at the OS level. Check out Mender
+- [ ] More elegant pop handling (not the ffmpeg hack)

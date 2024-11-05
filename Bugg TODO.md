@@ -1,0 +1,66 @@
+- [x] Add default SIM card WLAN connection profile to the build
+- [x] Get the soundcard codec build and install to work in the build. May need to do it in a first boot script.
+- [x] Create links to the various Bugg userspace scripts; en_modem.py, sound_config.py, etc., in, e.g., /usr/bin so they can run globally, and somehow source the venv permanently as well or just use the python from the venv with an absolute path.
+- [x] Change SHDNZ pin to GPIO0 in bugg-recording pcmd3180 config
+- [x] Buy M12-bare end, one per unit
+- [ ] Buy and make M12-USB, two per customer
+- [x] Change default password
+- [x] Create first boot script using systemd
+- [ ] Create M12 cable specs
+- [ ] Get Sarab to document config.json
+- [x] Get the original recording firmware to run and record from internal mic
+- [x] Extend the firmware to support recording from external mic
+- [x] External mic mode, phantom and gain settings to config.json
+- [x] Write factory test script, including self-test features where possible
+- [x] Order new threaded inserts as a priority
+- [x] Query DHL regarding export and re-import to minimise duties - I think I may have already done this for the fasteners, etc. Search email
+- [x] Suggest adding units to key names in the JSON file - e.g. record_length -> record_length_s, record_freq -> record_freq_hz
+- [x] Create GSM connection profile automatically
+- [x] Check that config.json gets copied to EMMC and read from there
+- [x] GSM connection doesn't seem to work reliably
+- [x] Auto mount SD card
+- [x] PDM bridge chip data (I2S) and external mic data (LJ) are combined into the same bus via the frame sync channel mux. Is this a data format compatibility problem? Can we set the bridge chip to use LJ? So far I haven't noticed any problems...
+- [x] Mechanism to re-run factory test (basically just an alias to re-enable the systemd hardware test service)
+- [x] Write modem driver
+- [x] Re-enable reboot-on-error
+- [x] Only add a connection with NetworkManager if there isn't already one with the same settings
+- [x] Integrate bugg-recording into build, get the package to install
+- [x] Write a systemd service to launch buggd
+- [x] Re-enable modem test
+- [x] Source venv on login?
+- [x] Write factory test result to /etc/issue
+- [x] Write factory test result to disk
+- [x] Add unit ID to factory test result
+- [x] Write LED driver
+- [x] Set LED's in response to test results
+- [x] Write board-level test, triggered by a different trigger file, just turn on some rails and blink the USER led.
+- [x] Run board-level test, perform the same measurements that an assembly technican will make
+- [x] Test the build
+- [x] Integrate a git tag into the build somehow...
+- [x] Consider suppressing undervolt prints to console? sudo sysctl -w kernel.printk="2 4 1 7" is the 
+- [x] Fix "started recording from I2S mic" - indicate which are recording
+- [x] Print phantom and gain to journal if recording from external mic
+- [x] Rename the bugg-recording repo to buggd
+- [x] Rename the BuggOS build artefact
+- [x] Create Debian package for buggd
+- [x] Develop distribution strategy for buggd
+- [x] Develop distribution for buggd
+- [x] Implement a version number mechanism in BuggOS
+- [x] Get BuggOS to build on Github
+- [x] Make workflow check out buggOS at the tagged commit
+- [x] Re-enable artefact build on github
+- [x] Get version string into issue file
+- [x] Add warning that factory test hasn't run to a default issue file
+- [x] Do some more stress testing now we've done so much distribution work. Test factory self-test modes one last time with different SD triggers, as well as normal boot mode. No shell intervention, shell disconnected. Check issue writes successfully (inject failed run first)
+- [x] Create a config.json file on the website, ideally with different GSM settings, 
+- [x] If factory test has never run on a unit, indicate it on the LED's on boot
+- [x] Clone buggd onto AWS instance and build
+- [x] Move back to my original venv-based mechanism of packaging - there's no advantage of using dh-virtualenv, indeed it's seen as something of a hack, I think. The .deb/APT packaging experience was fairly hard going, and it adds a lot of bloat and complexity to our package. I was thinking that distribution would be better, but we can use "pip install git+https://bla/nla/buggd.git" to install direct from github
+- [x] Get the build to complete on Github actions, with the right artefact name
+- [x] Fix log messages printing twice
+- [x] Currently pip upgrade isn't bumping us to latest 1.4.4 buggd
+- [x] Add release step to workflow so we can have public release images (GA artifacts cannot be public)
+- [x] Set buggOS version string in issue - currently it's just a placeholder
+- [ ] Pin buggd version in buggOS build, so it's explicit what version you get, not just the latest
+- [x] Check logs are making it to the bugg server
+- [x] Fix log bug
